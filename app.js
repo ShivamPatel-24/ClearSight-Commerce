@@ -54,8 +54,8 @@ app.post("/login", async (req, res) => {
 
 app.post("/register", async (req, res) => {
     try {
-        // console.log(req.body);
-        const { name, password, email } = req.body;
+        console.log(req.body);
+        const { username, password, email } = req.body;
 
         // check if email is already registered
         const userExists = await User.findOne({ email: email.toLowerCase() });
@@ -65,7 +65,7 @@ app.post("/register", async (req, res) => {
 
         // Create user to the database
         const user = await User.create({
-            username: name,
+            username: username,
             email: email.toLowerCase(),
             password: password,
         });
