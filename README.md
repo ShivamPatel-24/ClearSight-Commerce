@@ -6,7 +6,7 @@ It is recommended to first set up a virtual environment: https://rasa.com/docs/r
 Follow steps here to install rasa locally: https://rasa.com/docs/rasa/installation/installing-rasa-open-source
 
 ###### Run Server
-Running this command to run the rasa server on port 5055.
+Run this command to run the rasa server on port 5005.
 ```
 rasa run -m models --enable-api --cors "*"
 ```
