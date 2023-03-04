@@ -1,4 +1,10 @@
 ## E-commerce Website for visually impaired
+
+First install any dependencies:
+```
+npm install
+```
+
 ###### Installing Rasa
 Python 3.7 - 3.10 is needed
 It is recommended to first set up a virtual environment: https://rasa.com/docs/rasa/installation/environment-set-up
