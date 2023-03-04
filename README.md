@@ -2,6 +2,7 @@
 ###### Installing Rasa
 Python 3.7 - 3.10 is needed
 It is recommended to first set up a virtual environment: https://rasa.com/docs/rasa/installation/environment-set-up
+
 Follow steps here to install rasa locally: https://rasa.com/docs/rasa/installation/installing-rasa-open-source
 
 ###### Run Server
