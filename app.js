@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const User = require("./models/user");
 
+
 const app = express();
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -13,6 +14,10 @@ mongoose.set("strictQuery", true);
 mongoose.connect(process.env.DB_URL).then(() => {
     console.log("DB connection established");
 });
+
+// render the Rasa Webchat widget on the /rasa endpoint
+app.get('/chatbot', (req, res) => {
+    res.render("chatbot")});
 
 app.get("/", (req, res) => {
     res.render("home");
