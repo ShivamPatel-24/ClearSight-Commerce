@@ -84,6 +84,10 @@ app.post("/register", async (req, res) => {
     }
 });
 
+app.get("/payment", (req, res) => {
+    res.render("cc");
+});
+
 let port = process.env.PORT;
 if (port == null || port == "") {
     port = 3000;
