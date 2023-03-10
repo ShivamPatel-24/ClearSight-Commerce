@@ -5,7 +5,7 @@
   </div>
   
   
-  <div class="border border-5 shadow bg-white rounded" style="margin: 3% 32% 5% 32%; padding: 5% 5%">
+  <div class="border border-5 shadow bg-white rounded" style="margin: 3% 22% 5% 22%; padding: 5% 5%">
     <form action="/login" method="POST">
       <div class="form-group my-3">
         <label for="email">Email</label>
@@ -20,15 +20,47 @@
       </div>
     
     </form>
-    <div class="mt-3">
-      <p class>Don't have an account?
-        <!-- <button class="btn btn-light"> -->
-          <a class="text-primary" href='/register'>Sign up for an account</a>
-        <!-- </button> -->
+    <div class="mt-3" id="middle-panel">
+      <p class="text-body">Don't have an account?
+        <button id="font-increase-btn"  style=" background-color: rgb(157, 157, 228)"  class="btn btn-light">Increase Font Size</button>
+        <a class="text-primary" href='/register'>Sign up for an account</a>
       </p>
     </div>
-
+    
+      </div>
+  
+      <script>
+        rangeInput = document.getElementById('range');
+        container = document.getElementsByClassName('container')[0];
+  
+        rangeInput.addEventListener("change",function(){
+          container.style.filter = "brightness(" + rangeInput.value + "%)";
+        });
+      </script>
+    </body>
 
   </div>
+ 
   <%- include('partials/footer') %>
 
+  <style>
+    #font-increase-btn {
+      float: right;
+    }
+    #middle-panel {
+      height: 60%; /* Initial height of the middle panel */
+      transition: height 0.3s ease-in-out; /* Smooth transition when height changes */
+    }
+    #middle-panel.large {
+      height: 80%; /* Increased height of the middle panel when the font is increased */
+    }
+  </style>
+
+  <script>
+    var fontSize = 16; // initial font size
+    document.getElementById("font-increase-btn").addEventListener("click", function() {
+      fontSize += 2; // increase font size by 2
+      document.body.style.fontSize = fontSize + "px";
+      document.getElementById("middle-panel").classList.add("large"); // Add the "large" class to the middle panel to increase its size
+    });
+  </script>
