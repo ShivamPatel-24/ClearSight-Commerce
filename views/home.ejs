@@ -1,14 +1,24 @@
 <%- include("partials/header") %>
 
   <body>
-   
+
+    <h1> Hello Welcome !!</h1>
+    <button id="font-increase-btn" style=" background-color: rgb(157, 157, 228);float:right;"  class="btn btn-light">Increase Font Size</button>
+    <button id="font-dec-btn" style=" background-color: rgb(157, 157, 228);float:right;"  class="btn btn-light">decrease Font Size</button>
+
     <section id="services">
+
+      
       <div class="row gy-4">
     
-        <button id="font-increase-btn" style=" background-color: rgb(157, 157, 228)"  class="btn btn-light">Increase Font Size</button>
+   
 
+        <div class="mt-3">
+          <input type="range" min="0" max="200" value="100" class="slider" id="brightness">
+          slide to adjust the brightness
 
-        
+        </div>
+
         <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
           <div class="box">
             <div class="icon"><i class="bi bi-briefcase"></i></div>
@@ -93,12 +103,50 @@
       </div>
     </section>
 
+
+    <style>
+    
+  
+      input[type=range] {
+    width: 40%; /* or any other percentage or pixel value you prefer */
+  }
+    </style>
+
     <script>
-      var fontSize = 16; // initial font size
-      document.getElementById("font-increase-btn").addEventListener("click", function() {
-        fontSize += 2; // increase font size by 2
-        document.body.style.fontSize = fontSize + "px";
-      });
+
+var fontSize = 16; // initial font size
+  var maxFontSize = 100; // maximum font size
+  var minFontSize = 12; // minimum font size
+
+  document.getElementById("font-increase-btn").addEventListener("click", function() {
+    if (fontSize < maxFontSize) {
+      fontSize += 2; // increase font size by 2
+      document.body.style.fontSize = fontSize + "px";
+      document.getElementById("middle-panel").classList.add("large"); // Add the "large" class to the middle panel to increase its size
+    }
+  });
+
+  document.getElementById("font-dec-btn").addEventListener("click", function() {
+    if (fontSize > minFontSize) {
+      fontSize -= 2; // decrease font size by 2
+      document.body.style.fontSize = fontSize + "px";
+      if (fontSize <= minFontSize) {
+        document.getElementById("middle-panel").classList.remove("large"); // Remove the "large" class from the middle panel to decrease its size
+      }
+    }
+  });
+
+      var brightness = 100; // initial brightness
+var body = document.getElementsByTagName("body")[0];
+var brightnessSlider = document.getElementById("brightness");
+
+brightnessSlider.addEventListener("input", function() {
+  brightness = brightnessSlider.value;
+  body.style.filter = "brightness(" + brightness + "%)";
+});
+
+
+
     </script>
 
     </div>

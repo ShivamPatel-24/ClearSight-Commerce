@@ -23,15 +23,22 @@
     <div class="mt-3">
       <p class="text-body">Don't have an account?
         <button id="font-increase-btn" style="background-color: rgb(157, 157, 228);" class="btn btn-light">Increase Font Size</button>
+        <button id="font-decrease-btn" style="background-color: rgb(157, 157, 228); text-align: right;" class="btn btn-light">Decrease Font Size</button>
+        <a>                          </a>
+        
         <a class="text-primary" href='/register'>Sign up for an account</a>
       </p>
     </div>
   </div>
 
   <div class="mt-3">
-    <input type="range" min="0" max="200" value="100" class="slider" id="range">
+    <input type="range" min="0" max="200" value="100" class="slider" id="range"> slide to adjust the brightness
   </div>
   
+
+
+  
+
 </div>
 
 <%- include('partials/footer') %>
@@ -56,10 +63,25 @@
 
 <script>
   var fontSize = 16; // initial font size
+  var maxFontSize = 100; // maximum font size
+  var minFontSize = 12; // minimum font size
+
   document.getElementById("font-increase-btn").addEventListener("click", function() {
-    fontSize += 2; // increase font size by 2
-    document.body.style.fontSize = fontSize + "px";
-    document.getElementById("middle-panel").classList.add("large"); // Add the "large" class to the middle panel to increase its size
+    if (fontSize < maxFontSize) {
+      fontSize += 2; // increase font size by 2
+      document.body.style.fontSize = fontSize + "px";
+      document.getElementById("middle-panel").classList.add("large"); // Add the "large" class to the middle panel to increase its size
+    }
+  });
+
+  document.getElementById("font-decrease-btn").addEventListener("click", function() {
+    if (fontSize > minFontSize) {
+      fontSize -= 2; // decrease font size by 2
+      document.body.style.fontSize = fontSize + "px";
+      if (fontSize <= minFontSize) {
+        document.getElementById("middle-panel").classList.remove("large"); // Remove the "large" class from the middle panel to decrease its size
+      }
+    }
   });
 
   var rangeInput = document.getElementById('range');
@@ -67,4 +89,7 @@
   rangeInput.addEventListener("input",function(){
     container.style.filter = "brightness(" + rangeInput.value + "%)";
   });
+
+
+
 </script>
