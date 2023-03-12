@@ -24,18 +24,41 @@
       <input type="password" class="form-control"   minlength="4"
               maxlength="16" name="password" required placeholder="enter password">
     </div>
+  </form>
+
     <div class="form-group mt-5">
+      <p align="right">
       <button type="submit" class="form-control btn btn-dark">Register</button>
       <button id="font-increase-btn" style=" background-color: rgb(157, 157, 228)"  class="btn btn-light">Increase Font Size</button>
       <button id="font-decrease-btn" style=" background-color: rgb(157, 157, 228)"  class="btn btn-light">decrease Font Size</button>
-    </div>
-    <div class="mt-3">
-      <label for="brightness">Adjust Brightness</label>
-      <input type="range" min="0" max="200" value="100" class="slider" id="brightness">
-    </div>
-    
-  </div> 
-</form>
+   </p>
+
+
+ 
+  </div>
+</div> 
+
+<style>
+  .mt-3 {
+    width: 400px; /* replace with the actual width of the parent element */
+    margin: 0 auto; /* center the parent element horizontally */
+  }
+  #brightness {
+    width: 500px; /* replace with the actual width of the slider */
+  }
+  #brightness-wrapper {
+    margin-left: 800px; /* adjust this value based on the parent element and slider widths */
+  }
+</style>
+
+<div class="mt-3" id="brightness-wrapper">
+  <label for="brightness">Adjust Brightness</label>
+  <input type="range" min="0" max="200" value="100" class="slider" id="brightness">
+</div>
+
+
+
+
 
 
 <%- include('partials/footer') %>
@@ -45,6 +68,8 @@
     #font-increase-btn {
       float: right;
     }
+  
+
     #middle-panel {
       height: 60%; /* Initial height of the middle panel */
       transition: height 0.3s ease-in-out; /* Smooth transition when height changes */
