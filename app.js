@@ -14,7 +14,7 @@ mongoose.connect(process.env.DB_URL).then(() => {
     console.log("DB connection established");
 });
 
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
     res.render("home");
 });
 
@@ -85,7 +85,7 @@ app.post("/register", async (req, res) => {
 });
 
 app.get("/payment", (req, res) => {
-    res.render("cc");
+    res.render("payment");
 });
 
 let port = process.env.PORT;
